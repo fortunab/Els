@@ -1,6 +1,6 @@
-# Hydra AIXIA
+# Hydra AIXIA Extended
 
-Hydra AIXIA is a research-oriented collection of machine-learning experiments for medical image analysis, federated-learning prototypes, multimodal ML/LM fusion, and resource-aware neural-network inference scheduling.
+Hydra AIXIA extended is a research-oriented collection of machine-learning experiments for medical image analysis, federated-learning prototypes, multimodal ML/LM fusion, and resource-aware neural-network inference scheduling.
 
 The repository was reorganized from standalone Colab-style Python scripts into a cleaner GitHub-ready layout with reusable modules, examples, documentation, and safe configuration practices.
 
