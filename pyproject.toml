@@ -3,12 +3,15 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "hydra-aixia"
+name = "multih-eu"
 version = "0.1.0"
-description = "Research prototypes for medical AI, multimodal ML/LM fusion, and resource-aware inference scheduling."
+description = "Federated multi-disease medical AI framework"
 readme = "README.md"
 requires-python = ">=3.10"
-authors = [{name = "Hydra AIXIA Contributors"}]
+authors = [
+  {name = "Diogen Babuc"},
+  {name = "Teodor-Florin Fortis"}
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]

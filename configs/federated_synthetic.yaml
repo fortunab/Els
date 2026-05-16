@@ -1,0 +1,19 @@
+seed: 42
+device: auto
+output_dir: outputs/federated
+model:
+  name: cnn
+training:
+  batch_size: 16
+  lr: 0.001
+data:
+  synthetic: true
+  num_samples_per_client: 120
+  num_classes: 2
+  image_size: 64
+federated:
+  num_clients: 3
+  rounds: 3
+  local_epochs: 1
+  strategy: fedprox
+  mu: 0.01
