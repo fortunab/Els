@@ -1,6 +1,4 @@
-# ==========================================================
 # Alzheimer CNN Training Pipeline
-# ==========================================================
 
 import os
 import tensorflow as tf
@@ -9,9 +7,7 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import ModelCheckpoint, EarlyStopping
 
-# ==========================================================
 # DATASET PATH
-# ==========================================================
 
 DATASET_PATH = "/kaggle/input/dataset-alzheimer/Alzheimer_s Dataset"
 
@@ -20,10 +16,6 @@ test_dir = os.path.join(DATASET_PATH, "test")
 
 IMG_SIZE = (224, 224)
 BATCH_SIZE = 32
-
-# ==========================================================
-# DATA GENERATORS
-# ==========================================================
 
 train_gen = ImageDataGenerator(
     rescale=1./255,
@@ -56,9 +48,6 @@ test_data = test_gen.flow_from_directory(
     shuffle=False
 )
 
-# ==========================================================
-# CNN MODEL
-# ==========================================================
 
 inputs = layers.Input(shape=(224, 224, 3))
 
@@ -90,9 +79,7 @@ outputs = layers.Dense(4, activation='softmax')(x)
 
 model = Model(inputs=inputs, outputs=outputs)
 
-# ==========================================================
 # COMPILE MODEL
-# ==========================================================
 
 model.compile(
     optimizer=tf.keras.optimizers.Adam(1e-4),
@@ -101,10 +88,6 @@ model.compile(
 )
 
 model.summary()
-
-# ==========================================================
-# CALLBACKS
-# ==========================================================
 
 callbacks = [
     ModelCheckpoint(
@@ -118,10 +101,6 @@ callbacks = [
     )
 ]
 
-# ==========================================================
-# TRAINING
-# ==========================================================
-
 history = model.fit(
     train_data,
     validation_data=val_data,
@@ -129,9 +108,6 @@ history = model.fit(
     callbacks=callbacks
 )
 
-# ==========================================================
-# EVALUATION
-# ==========================================================
 
 test_loss, test_acc = model.evaluate(test_data)
 
