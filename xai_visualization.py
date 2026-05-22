@@ -1,6 +1,5 @@
-# ==========================================================
+
 # Explainable AI Pipeline (GradCAM / GradCAM++ / ScoreCAM)
-# ==========================================================
 
 import os
 import glob
@@ -23,15 +22,9 @@ DATASET_PATH = "/kaggle/input/dataset-alzheimer/Alzheimer_s Dataset"
 
 test_dir = os.path.join(DATASET_PATH, "test")
 
-# ==========================================================
-# LOAD TRAINED MODEL
-# ==========================================================
 
 model = tf.keras.models.load_model("best_model.keras")
 
-# ==========================================================
-# LOAD RANDOM IMAGE
-# ==========================================================
 
 all_images = glob.glob(test_dir + "/*/*.jpg")
 
@@ -53,27 +46,18 @@ def load_img(path):
 
 x, orig = load_img(img_path)
 
-# ==========================================================
-# PREDICTION
-# ==========================================================
 
 pred = model.predict(x)
 pred_class = np.argmax(pred)
 
 print("Predicted class:", pred_class)
 
-# ==========================================================
-# KERAS 3 FIX
-# ==========================================================
 
 def replace_to_linear_keras3(model_instance):
     model_instance.layers[-1].activation = tf.keras.activations.linear
 
 score = CategoricalScore(pred_class)
 
-# ==========================================================
-# CAM INITIALIZATION
-# ==========================================================
 
 gradcam = Gradcam(
     model,
@@ -93,17 +77,10 @@ scorecam = Scorecam(
     clone=False
 )
 
-# ==========================================================
-# GENERATE HEATMAPS
-# ==========================================================
-
 g = gradcam(score, x)[0]
 gp = gradcam_pp(score, x)[0]
 sc = scorecam(score, x)[0]
 
-# ==========================================================
-# NORMALIZATION
-# ==========================================================
 
 def norm(c):
     c = np.maximum(c, 0)
@@ -112,9 +89,6 @@ def norm(c):
 
 g, gp, sc = norm(g), norm(gp), norm(sc)
 
-# ==========================================================
-# OVERLAY FUNCTION
-# ==========================================================
 
 def overlay(cam, img):
 
@@ -155,9 +129,6 @@ g_img = overlay(g, orig)
 gp_img = overlay(gp, orig)
 sc_img = overlay(sc, orig)
 
-# ==========================================================
-# VISUALIZATION
-# ==========================================================
 
 plt.figure(figsize=(12,8))
 
