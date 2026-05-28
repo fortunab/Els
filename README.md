@@ -8,7 +8,7 @@ The paper reports a framework that combines disease-specific CNN/ViT/hybrid arch
 
 ## Main Features
 
-- Disease-specific architectures: CNN, lightweight ViT, hybrid CNN-ViT, Bionnica-style CNN, EDoViT-style ViT, EI-ViT-style retinal transformer, BOVNet/BFIS-style cytology CNN.
+- Disease-specific architectures
 - Federated training simulation with FedAvg and FedProx.
 - Multi-disease dataset organization with institution-aware splits.
 - Metrics: Accuracy, Precision, Recall/Sensitivity, Specificity, F1, ROC-AUC, PR-AUC, MCC, ECE, Brier Score.
