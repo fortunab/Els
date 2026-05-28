@@ -90,7 +90,7 @@ data/
     └── skin/
 ```
 
-Each disease domain can have a different number of classes. Set this in the YAML config.
+Each disease domain can have a different number of classes. This will be set in the YAML config.
 
 ## Important Reproducibility Note
 
