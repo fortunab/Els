@@ -74,7 +74,7 @@ python scripts/evaluate_predictions.py --predictions outputs/predictions.csv
 
 ## Dataset Format
 
-Expected image classification format:
+Expected image classification format (not yet available):
 
 ```text
 data/
