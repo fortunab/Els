@@ -22,7 +22,7 @@ The paper reports a framework that combines disease-specific CNN/ViT/hybrid arch
 ```text
 MultiH-EU/
 ├── configs/                  # YAML experiment configs
-├── data/                     # dataset placeholders; no medical data included
+├── data/                     # dataset placeholders; no medical data included yet
 ├── docs/                     # paper-related notes
 ├── notebooks/                # example notebook placeholder
 ├── scripts/                  # CLI entry points
