@@ -1,4 +1,4 @@
-Place exploratory notebooks here. Recommended notebooks:
+Recommended notebooks:
 
 1. Dataset preparation and institution-aware split generation.
 2. ROC/PR/calibration plotting from saved predictions.
