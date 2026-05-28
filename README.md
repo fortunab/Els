@@ -1,4 +1,4 @@
-# MultiH-EU: Federated Multi-Disease Medical AI Framework
+# Federated Multi-Disease Medical AI Framework
 
 This repository contains a reproducible PyTorch implementation scaffold for the **MultiH-EU** framework described in the manuscript: a federated, explainable, and deployment-aware multi-disease medical AI system for colorectal polyps, cervical cytology, Alzheimer MRI, diabetic retinopathy, and skin lesion classification.
 
@@ -20,7 +20,7 @@ The paper reports a framework that combines disease-specific CNN/ViT/hybrid arch
 ## Repository Structure
 
 ```text
-MultiH-EU/
+root/
 ├── configs/                  # YAML experiment configs
 ├── data/                     # dataset placeholders; no medical data included yet
 ├── docs/                     # paper-related notes
@@ -98,4 +98,4 @@ This repository includes executable training/evaluation infrastructure, but not 
 
 ## Citation
 
-If used, cite the MultiH-EU manuscript and the original datasets/frameworks according to their licenses.
+If used, cite the manuscript and the original datasets/frameworks according to their licenses.
