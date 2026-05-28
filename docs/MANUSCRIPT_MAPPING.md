@@ -1,6 +1,6 @@
 # Manuscript-to-Code Mapping
 
-This repository implements the main computational modules described in the MultiH-EU manuscript.
+This repository implements the main computational modules described in the manuscript.
 
 | Manuscript component | Code location |
 |---|---|
