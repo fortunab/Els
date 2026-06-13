@@ -46,56 +46,6 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
-## Quick Start with Synthetic Data
-
-Run a centralized smoke experiment:
-
-```bash
-python scripts/train_centralized.py --config configs/centralized_synthetic.yaml
-```
-
-Run federated simulation:
-
-```bash
-python scripts/train_federated.py --config configs/federated_synthetic.yaml
-```
-
-Run NAS-lite search:
-
-```bash
-python scripts/run_nas.py --config configs/nas_synthetic.yaml
-```
-
-Run evaluation metrics from saved predictions:
-
-```bash
-python scripts/evaluate_predictions.py --predictions outputs/predictions.csv
-```
-
-## Dataset Format
-
-Expected image classification format (not yet available):
-
-```text
-data/
-└── processed/
-    ├── colorectal/
-    │   ├── institution_a/
-    │   │   ├── class_0/*.png
-    │   │   └── class_1/*.png
-    │   └── institution_b/...
-    ├── cervical/
-    ├── alzheimer/
-    ├── retinopathy/
-    └── skin/
-```
-
-Each disease domain can have a different number of classes. This will be set in the YAML config.
-
-## Important Reproducibility Note
-
-This repository includes executable training/evaluation infrastructure, but not private clinical datasets. Reported manuscript values should only be claimed if reproduced with the actual datasets, splits, and experimental protocol.
-
 ## Citation
 
 If used, cite the manuscript and the original datasets/frameworks according to their licenses.
