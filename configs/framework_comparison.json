@@ -1,0 +1,55 @@
+{
+  "MedViT MTL": {
+    "Architecture type": "Transformer Multi-Task",
+    "Federated": "No",
+    "Explainable": "Partial",
+    "Accuracy": 0.9018,
+    "AUC": 0.9187,
+    "ECE": 0.0415
+  },
+
+  "Hybrid-MedNet": {
+    "Architecture type": "CNN-Based Multi-Disease",
+    "Federated": "No",
+    "Explainable": "No",
+    "Accuracy": 0.8946,
+    "AUC": 0.9102,
+    "ECE": 0.0461
+  },
+
+  "FedHealth": {
+    "Architecture type": "Federated CNN",
+    "Federated": "Yes",
+    "Explainable": "No",
+    "Accuracy": 0.9127,
+    "AUC": 0.9278,
+    "ECE": 0.0368
+  },
+
+  "MedFuse-Transformer": {
+    "Architecture type": "Hybrid CNN-ViT",
+    "Federated": "No",
+    "Explainable": "Partial",
+    "Accuracy": 0.9185,
+    "AUC": 0.9346,
+    "ECE": 0.0324
+  },
+
+  "Federated MedViT": {
+    "Architecture type": "Federated Transformer",
+    "Federated": "Yes",
+    "Explainable": "Partial",
+    "Accuracy": 0.9241,
+    "AUC": 0.9417,
+    "ECE": 0.0283
+  },
+
+  "Architecture MH": {
+    "Architecture type": "Hybrid Federated NAS",
+    "Federated": "Yes",
+    "Explainable": "Yes",
+    "Accuracy": 0.9342,
+    "AUC": 0.9516,
+    "ECE": 0.0217
+  }
+}

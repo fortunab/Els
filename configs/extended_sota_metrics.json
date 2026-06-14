@@ -1,0 +1,37 @@
+{
+  "ResNet50": {
+    "PR-AUC": 0.8914,
+    "FROC": 0.8647,
+    "MCC": 0.7816
+  },
+
+  "EfficientNet-B4": {
+    "PR-AUC": 0.9078,
+    "FROC": 0.8819,
+    "MCC": 0.8127
+  },
+
+  "Vision transformer": {
+    "PR-AUC": 0.9216,
+    "FROC": 0.8964,
+    "MCC": 0.8368
+  },
+
+  "FedAvg-CNN": {
+    "PR-AUC": 0.9297,
+    "FROC": 0.9043,
+    "MCC": 0.8512
+  },
+
+  "Hybrid CNN-ViT": {
+    "PR-AUC": 0.9378,
+    "FROC": 0.9135,
+    "MCC": 0.8729
+  },
+
+  "Architecture MH": {
+    "PR-AUC": 0.9442,
+    "FROC": 0.9126,
+    "MCC": 0.8873
+  }
+}

@@ -1,0 +1,37 @@
+{
+    "Colorectal polyps": {
+        "Accuracy": 0.9324,
+        "Precision": 0.9142,
+        "Sensitivity": 0.9287,
+        "F1-score": 0.9214,
+        "AUC": 0.9518
+    },
+    "Cervical cytology": {
+        "Accuracy": 0.9106,
+        "Precision": 0.8931,
+        "Sensitivity": 0.9075,
+        "F1-score": 0.9002,
+        "AUC": 0.9247
+    },
+    "Alzheimer's disease": {
+        "Accuracy": 0.8893,
+        "Precision": 0.8728,
+        "Sensitivity": 0.8916,
+        "F1-score": 0.8821,
+        "AUC": 0.9035
+    },
+    "Diabetic retinopathy": {
+        "Accuracy": 0.9217,
+        "Precision": 0.9054,
+        "Sensitivity": 0.9189,
+        "F1-score": 0.9121,
+        "AUC": 0.9384
+    },
+    "Skin lesions": {
+        "Accuracy": 0.9012,
+        "Precision": 0.8876,
+        "Sensitivity": 0.8993,
+        "F1-score": 0.8934,
+        "AUC": 0.9142
+    }
+}

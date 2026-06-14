@@ -1,0 +1,27 @@
+{
+  "Colorectal polyps": {
+    "ECE": 0.0217,
+    "Brier score": 0.0734,
+    "Entropy": 0.1842
+  },
+  "Cervical cytology": {
+    "ECE": 0.0276,
+    "Brier score": 0.0815,
+    "Entropy": 0.1967
+  },
+  "Alzheimer's disease": {
+    "ECE": 0.0341,
+    "Brier score": 0.0928,
+    "Entropy": 0.2149
+  },
+  "Diabetic retinopathy": {
+    "ECE": 0.0234,
+    "Brier score": 0.0761,
+    "Entropy": 0.1885
+  },
+  "Skin lesions": {
+    "ECE": 0.0298,
+    "Brier score": 0.0854,
+    "Entropy": 0.2013
+  }
+}

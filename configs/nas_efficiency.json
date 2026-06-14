@@ -1,0 +1,29 @@
+{
+  "Baseline CNN": {
+    "Accuracy": 0.9015,
+    "Parameters (M)": 34.72,
+    "FLOPs (G)": 9.84,
+    "Latency (ms)": 42.16
+  },
+
+  "Vision transformer": {
+    "Accuracy": 0.9178,
+    "Parameters (M)": 48.36,
+    "FLOPs (G)": 12.91,
+    "Latency (ms)": 57.43
+  },
+
+  "Hybrid CNN-ViT": {
+    "Accuracy": 0.9286,
+    "Parameters (M)": 39.14,
+    "FLOPs (G)": 10.27,
+    "Latency (ms)": 46.82
+  },
+
+  "NAS-optimized model": {
+    "Accuracy": 0.9342,
+    "Parameters (M)": 28.63,
+    "FLOPs (G)": 7.92,
+    "Latency (ms)": 34.57
+  }
+}

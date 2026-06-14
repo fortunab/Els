@@ -1,0 +1,43 @@
+{
+  "Full MH framework": {
+    "Accuracy": 0.9342,
+    "F1-score": 0.9238,
+    "AUC": 0.9516,
+    "ECE": 0.0217
+  },
+
+  "W/o federated learning": {
+    "Accuracy": 0.9181,
+    "F1-score": 0.9074,
+    "AUC": 0.9365,
+    "ECE": 0.0326
+  },
+
+  "W/o preprocessing": {
+    "Accuracy": 0.9097,
+    "F1-score": 0.8983,
+    "AUC": 0.9271,
+    "ECE": 0.0369
+  },
+
+  "W/o NAS optimization": {
+    "Accuracy": 0.9214,
+    "F1-score": 0.9112,
+    "AUC": 0.9398,
+    "ECE": 0.0297
+  },
+
+  "W/o explainability module": {
+    "Accuracy": 0.9258,
+    "F1-score": 0.9149,
+    "AUC": 0.9431,
+    "ECE": 0.0284
+  },
+
+  "W/o calibration mechanism": {
+    "Accuracy": 0.9286,
+    "F1-score": 0.9172,
+    "AUC": 0.9453,
+    "ECE": 0.0418
+  }
+}

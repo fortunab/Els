@@ -1,0 +1,43 @@
+{
+  "ResNet-50": {
+    "Accuracy": 0.8927,
+    "F1-score": 0.8816,
+    "AUC": 0.9048,
+    "ECE": 0.0412
+  },
+
+  "EfficientNet-B4": {
+    "Accuracy": 0.9073,
+    "F1-score": 0.8951,
+    "AUC": 0.9186,
+    "ECE": 0.0368
+  },
+
+  "Vision transformer": {
+    "Accuracy": 0.9178,
+    "F1-score": 0.9064,
+    "AUC": 0.9317,
+    "ECE": 0.0335
+  },
+
+  "FedAvg-CNN": {
+    "Accuracy": 0.9218,
+    "F1-score": 0.9109,
+    "AUC": 0.9386,
+    "ECE": 0.0304
+  },
+
+  "Hybrid CNN-ViT": {
+    "Accuracy": 0.9286,
+    "F1-score": 0.9175,
+    "AUC": 0.9448,
+    "ECE": 0.0272
+  },
+
+  "Architecture MH": {
+    "Accuracy": 0.9342,
+    "F1-score": 0.9238,
+    "AUC": 0.9516,
+    "ECE": 0.0217
+  }
+}

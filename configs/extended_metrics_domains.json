@@ -1,0 +1,31 @@
+{
+  "Colorectal polyps": {
+    "PR-AUC": 0.9442,
+    "FROC": 0.9126,
+    "MCC": 0.8873
+  },
+
+  "Cervical cytology": {
+    "PR-AUC": 0.9138,
+    "FROC": 0.8861,
+    "MCC": 0.8421
+  },
+
+  "Alzheimer's disease": {
+    "PR-AUC": 0.8912,
+    "FROC": 0.8547,
+    "MCC": 0.8067
+  },
+
+  "Diabetic retinopathy": {
+    "PR-AUC": 0.9296,
+    "FROC": 0.9018,
+    "MCC": 0.8649
+  },
+
+  "Skin lesions": {
+    "PR-AUC": 0.9027,
+    "FROC": 0.8734,
+    "MCC": 0.8283
+  }
+}

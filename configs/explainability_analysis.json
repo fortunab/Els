@@ -1,0 +1,27 @@
+{
+  "Colorectal polyps": {
+    "Localization accuracy": 0.9318,
+    "IoU": 0.8642,
+    "Clinician agreement": 0.9027
+  },
+  "Cervical cytology": {
+    "Localization accuracy": 0.9145,
+    "IoU": 0.8426,
+    "Clinician agreement": 0.8874
+  },
+  "Alzheimer's disease": {
+    "Localization accuracy": 0.8961,
+    "IoU": 0.8175,
+    "Clinician agreement": 0.8738
+  },
+  "Diabetic retinopathy": {
+    "Localization accuracy": 0.9273,
+    "IoU": 0.8519,
+    "Clinician agreement": 0.8962
+  },
+  "Skin lesions": {
+    "Localization accuracy": 0.9084,
+    "IoU": 0.8361,
+    "Clinician agreement": 0.8829
+  }
+}

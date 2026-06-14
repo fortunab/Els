@@ -1,0 +1,32 @@
+{
+  "Hospital A": {
+    "Accuracy": 0.9241,
+    "F1-score": 0.9136,
+    "AUC": 0.9418,
+    "ECE": 0.0284
+  },
+  "Hospital B": {
+    "Accuracy": 0.9187,
+    "F1-score": 0.9072,
+    "AUC": 0.9365,
+    "ECE": 0.0317
+  },
+  "Hospital C": {
+    "Accuracy": 0.9075,
+    "F1-score": 0.8963,
+    "AUC": 0.9248,
+    "ECE": 0.0362
+  },
+  "Hospital D": {
+    "Accuracy": 0.9152,
+    "F1-score": 0.9048,
+    "AUC": 0.9327,
+    "ECE": 0.0334
+  },
+  "Hospital E": {
+    "Accuracy": 0.9214,
+    "F1-score": 0.9107,
+    "AUC": 0.9396,
+    "ECE": 0.0291
+  }
+}
