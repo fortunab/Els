@@ -1,27 +1,10 @@
 import subprocess
 import sys
 import time
-from pathlib import Path
-
-ROOT = Path(__file__).resolve().parent
-
-FILES = [
-    "classification_performance.py",
-    "federated_performance.py",
-    "cross_institution_generalization.py",
-    "explainability_analysis.py",
-    "calibration_analysis.py",
-    "nas_efficiency.py",
-    "sota_comparison.py",
-    "extended_metrics_domains.py",
-    "extended_sota_metrics.py",
-    "framework_comparison.py",
-    "ablation_study.py",
-]
-
+import runs_s
 
 def run_file(file_name):
-    script_path = ROOT / file_name
+    script_path = runs_s.ROOT / file_name
 
     if not script_path.exists():
         raise FileNotFoundError(f"Missing script: {script_path}")
@@ -32,7 +15,7 @@ def run_file(file_name):
 
     subprocess.check_call(
         [sys.executable, str(script_path)],
-        cwd=ROOT.parent
+        cwd=runs_s.ROOT.parent
     )
 
 
@@ -51,7 +34,7 @@ def main():
     print("Training stage completed.")
 
     print("\n[3/5] Evaluating tables and metrics...")
-    for file_name in FILES:
+    for file_name in runs_s.FILES:
         run_file(file_name)
 
     print("\n[4/5] Generating figures...")

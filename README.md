@@ -37,13 +37,39 @@ root/
 └── tests/                    # smoke tests
 ```
 
+
 ## Installation
+
+Create and activate a virtual environment:
 
 ```bash
 python -m venv .venv
+```
+
+On Linux/macOS:
+
+```bash
 source .venv/bin/activate
+```
+
+On Windows PowerShell:
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
-pip install -e .
+```
+
+## Run everything
+
+From the repository root:
+
+```bash
+python src/run_all.py
 ```
 
 ## Citation
