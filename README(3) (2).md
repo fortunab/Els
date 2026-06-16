@@ -2,7 +2,7 @@
 
 This repository contains experimental scripts for evaluating classification performance, federated learning behavior, cross-institution generalization, explainability, calibration, NAS efficiency, state-of-the-art comparisons, framework comparisons, and ablation studies.
 
-The project can be executed either script by script or all at once using `run\_all.py`.
+The project can be executed either script by script or all at once using `run_all.py`.
 
 ## Repository
 
@@ -41,18 +41,18 @@ python3 -m venv .venv
 
 ## Run All Experiments
 
-To execute all available experiments using `run\_all.py`, run:
+To execute all available experiments using `run_all.py`, run:
 
 ### Windows
 
 ```powershell
-.\\.venv\\Scripts\\python.exe src/run\_all.py
+.\\.venv\\Scripts\\python.exe src/run_all.py
 ```
 
 ### Linux/macOS
 
 ```bash
-./.venv/bin/python run\_all.py
+./.venv/bin/python src/run_all.py
 ```
 
 ## Run Individual Scripts
@@ -62,33 +62,33 @@ Each experiment can also be executed independently.
 ### Windows
 
 ```powershell
-.\\.venv\\Scripts\\python.exe src/classification\_performance.py
-.\\.venv\\Scripts\\python.exe src/federated\_performance.py
-.\\.venv\\Scripts\\python.exe src/cross\_institution\_generalization.py
-.\\.venv\\Scripts\\python.exe src/explainability\_analysis.py
-.\\.venv\\Scripts\\python.exe src/calibration\_analysis.py
-.\\.venv\\Scripts\\python.exe src/nas\_efficiency.py
-.\\.venv\\Scripts\\python.exe src/sota\_comparison.py
-.\\.venv\\Scripts\\python.exe src/extended\_metrics\_domains.py
-.\\.venv\\Scripts\\python.exe src/extended\_sota\_metrics.py
-.\\.venv\\Scripts\\python.exe src/framework\_comparison.py
-.\\.venv\\Scripts\\python.exe src/ablation\_study.py
+.\\.venv\\Scripts\\python.exe src/classification_performance.py
+.\\.venv\\Scripts\\python.exe src/federated_performance.py
+.\\.venv\\Scripts\\python.exe src/cross_institution_generalization.py
+.\\.venv\\Scripts\\python.exe src/explainability_analysis.py
+.\\.venv\\Scripts\\python.exe src/calibration_analysis.py
+.\\.venv\\Scripts\\python.exe src/nas_efficiency.py
+.\\.venv\\Scripts\\python.exe src/sota_comparison.py
+.\\.venv\\Scripts\\python.exe src/extended_metrics_domains.py
+.\\.venv\\Scripts\\python.exe src/extended_sota_metrics.py
+.\\.venv\\Scripts\\python.exe src/framework_comparison.py
+.\\.venv\\Scripts\\python.exe src/ablation_study.py
 ```
 
 ### Linux/macOS
 
 ```bash
-./.venv/bin/python classification\_performance.py
-./.venv/bin/python federated\_performance.py
-./.venv/bin/python cross\_institution\_generalization.py
-./.venv/bin/python explainability\_analysis.py
-./.venv/bin/python calibration\_analysis.py
-./.venv/bin/python nas\_efficiency.py
-./.venv/bin/python sota\_comparison.py
-./.venv/bin/python extended\_metrics\_domains.py
-./.venv/bin/python extended\_sota\_metrics.py
-./.venv/bin/python framework\_comparison.py
-./.venv/bin/python ablation\_study.py
+./.venv/bin/python src/classification_performance.py
+./.venv/bin/python src/federated_performance.py
+./.venv/bin/python src/cross_institution_generalization.py
+./.venv/bin/python src/explainability_analysis.py
+./.venv/bin/python src/calibration_analysis.py
+./.venv/bin/python src/nas_efficiency.py
+./.venv/bin/python src/sota_comparison.py
+./.venv/bin/python src/extended_metrics_domains.py
+./.venv/bin/python src/extended_sota_metrics.py
+./.venv/bin/python src/framework_comparison.py
+./.venv/bin/python src/ablation_study.py
 ```
 
 ## Optional: Activate the Virtual Environment
@@ -110,7 +110,7 @@ Instead of calling the virtual environment Python directly every time, you can a
 If PowerShell blocks script execution, you can still use the direct commands shown above, such as:
 
 ```powershell
-.\\.venv\\Scripts\\python.exe classification\_performance.py
+.\\.venv\\Scripts\\python.exe src/classification_performance.py
 ```
 
 ### Linux/macOS
@@ -122,28 +122,9 @@ source .venv/bin/activate
 After activation, scripts can be executed simply with:
 
 ```bash
-python classification\_performance.py
-python run\_all.py
+python src/classification_performance.py
+python src/run_all.py
 ```
-
-## Project Scripts
-
-|Script|Purpose|
-|-|-|
-|`classification\_performance.py`|Evaluates classification performance.|
-|`federated\_performance.py`|Evaluates performance in federated learning settings.|
-|`cross\_institution\_generalization.py`|Tests generalization across institutions or data sources.|
-|`explainability\_analysis.py`|Runs explainability-related analyses.|
-|`calibration\_analysis.py`|Evaluates calibration behavior of models.|
-|`nas\_efficiency.py`|Analyzes neural architecture search efficiency.|
-|`sota\_comparison.py`|Compares results with state-of-the-art methods.|
-|`extended\_metrics\_domains.py`|Computes extended metrics across domains.|
-|`extended\_sota\_metrics.py`|Computes extended metrics for SOTA comparison.|
-|`framework\_comparison.py`|Compares different frameworks or methodological variants.|
-|`ablation\_study.py`|Runs ablation experiments.|
-|`run\_all.py`|Executes the full experimental workflow.|
-
-## Troubleshooting
 
 ### Git is not recognized on Windows
 
@@ -176,12 +157,4 @@ You do not need to activate the environment. Use the direct virtual environment 
 ```powershell
 .\\.venv\\Scripts\\python.exe run\_all.py
 ```
-
-## License
-
-Please refer to the repository license file if available.
-
-## Citation
-
-If this repository supports a scientific publication, please cite the corresponding paper or project once citation information is available.
 
