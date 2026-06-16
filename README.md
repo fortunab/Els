@@ -4,7 +4,7 @@ This repository contains a reproducible PyTorch implementation scaffold for the 
 
 The paper reports a framework that combines disease-specific CNN/ViT/hybrid architectures, preprocessing, federated learning, NAS-guided optimization, explainability, uncertainty, calibration, and cross-institution validation. This codebase provides the implementation components needed to reproduce and extend those experiments.
 
-> The repository is dataset-agnostic. Public datasets such as Kvasir-SEG, CVC-ClinicDB, ADNI, EyePACS/APTOS, ISIC, HAM10000, Herlev, and SIPaKMeD must be downloaded separately according to their licenses.
+> The repository is dataset-agnostic. Public datasets such as Kvasir-SEG, CVC-ClinicDB, ADNI, EyePACS/APTOS, ISIC, HAM10000, Herlev, and SIPaKMeD must be downloaded separately according to their licenses. 
 
 ## Main Features
 
@@ -15,63 +15,4 @@ The paper reports a framework that combines disease-specific CNN/ViT/hybrid arch
 - Explainability: Grad-CAM for CNN/hybrid models.
 - Uncertainty: Monte Carlo Dropout and predictive entropy.
 - NAS-lite random search for accuracy-latency trade-off.
-- Edge/deployment utilities: latency benchmarking, parameter count, FLOPs placeholder hooks.
-
-## Repository Structure
-
-```text
-root/
-├── configs/                  # YAML experiment configs
-├── data/                     # dataset placeholders; no medical data included yet
-├── docs/                     # paper-related notes
-├── notebooks/                # example notebook placeholder
-├── scripts/                  # CLI entry points
-├── src/multih/               # Python package
-│   ├── models/               # CNN, ViT, hybrid disease models
-│   ├── training/             # centralized training and evaluation
-│   ├── fl/                   # federated training strategies
-│   ├── metrics/              # medical metrics and calibration
-│   ├── xai/                  # Grad-CAM and interpretability
-│   ├── nas/                  # NAS-lite search
-│   └── utils/                # config, seed, logging, benchmark helpers
-└── tests/                    # smoke tests
-```
-
-
-## Installation
-
-Create and activate a virtual environment:
-
-```bash
-python -m venv .venv
-```
-
-On Linux/macOS:
-
-```bash
-source .venv/bin/activate
-```
-
-On Windows PowerShell:
-
-```powershell
-.venv\Scripts\Activate.ps1
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-## Run everything
-
-From the repository root:
-
-```bash
-python src/run_all.py
-```
-
-## Citation
-
-If used, cite the manuscript and the original datasets/frameworks according to their licenses.
+- Edge/deployment utilities: latency benchmarking, parameter count, FLOPs.
