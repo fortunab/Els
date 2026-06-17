@@ -1,0 +1,12 @@
+python_version: "3.10"
+crc_moe:
+  img_size: 96
+  batch_size: 32
+  epochs: 3
+  num_experts_pool: 8
+  topk_experts: 4
+  topk_route: 2
+aasag:
+  epochs: 1
+zero_nas:
+  n_architectures: 20
