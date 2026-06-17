@@ -1,334 +1,72 @@
-# MedAI Modular Research Suite
+"""R-ULIx barebone PyTorch model."""
 
-```text
-MedAI_Modular_Research_Suite/
-├── README.md
-├── requirements.txt
-├── environment.yml
-├── LICENSE
-├── CITATION.cff
-├── configs/
-│   └── default.yaml
-├── src/
-│   └── medai_suite/
-│       ├── __init__.py
-│       ├── aasag.py
-│       ├── crc_moe.py
-│       ├── rulix.py
-│       ├── semantic_framework.py
-│       ├── utils.py
-│       └── zero_nas.py
-├── scripts/
-│   ├── run_aasag.py
-│   ├── run_crc_moe.py
-│   ├── run_zero_nas.py
-│   ├── run_semantic_demo.py
-│   ├── run_rulix_demo.py
-│   └── run_all.py
-├── notebooks/
-├── docs/
-└── outputs/
-```
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
 
----
 
-## Required Python version
+class ProjectNormalize(nn.Module):
+    def __init__(self, in_dim, shared_dim, use_norm=True):
+        super().__init__()
+        self.proj = nn.Linear(in_dim, shared_dim)
+        self.norm = nn.LayerNorm(shared_dim) if use_norm else nn.Identity()
 
-Recommended:
+    def forward(self, x):
+        return self.norm(self.proj(x))
 
-```text
-Python 3.10
-```
 
-Why Python 3.10?
+class Router(nn.Module):
+    def __init__(self, dim, experts, topk=2):
+        super().__init__()
+        self.gate = nn.Linear(dim, experts)
+        self.topk = topk
 
-TensorFlow and TensorFlow Datasets are sensitive to Python and protobuf versions. Python 3.10 provides a stable environment for the TensorFlow stack used in these experiments. Pleas, adjust the number of epochs and the batch size in order to achieve better results.
+    def forward(self, x):
+        probs = F.softmax(self.gate(x), dim=-1)
+        weights, indices = torch.topk(probs, k=min(self.topk, probs.shape[-1]), dim=-1)
+        return weights, indices
 
----
 
-## Option A: Virtual environment with venv
+class LatentExperts(nn.Module):
+    def __init__(self, num_experts, dim, heads=4):
+        super().__init__()
+        self.experts = nn.ModuleList(
+            [nn.TransformerEncoderLayer(d_model=dim, nhead=heads, batch_first=True) for _ in range(num_experts)]
+        )
 
-### 1. Create a virtual environment
+    def forward(self, tokens, topk_idx):
+        outputs = [expert(tokens) for expert in self.experts]
+        return torch.stack(outputs, dim=0).mean(dim=0)
 
-```bash
-python -m venv .venv
-```
 
-This creates a project-specific environment and avoids interacting with the current system Python installation.
+class Reasoner(nn.Module):
+    def __init__(self, dim, num_classes=2):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.LayerNorm(dim),
+            nn.Linear(dim, dim),
+            nn.GELU(),
+            nn.Linear(dim, num_classes),
+        )
 
-### 2. Activate the virtual environment
+    def forward(self, x):
+        return self.net(x.mean(dim=1))
 
-Windows PowerShell:
 
-```bash
-.venv/Scripts/Activate.ps1
-```
+class R_ULIx(nn.Module):
+    def __init__(self, in_dim=128, shared_dim=256, num_experts=4, topk=2, num_classes=2):
+        super().__init__()
+        self.project = ProjectNormalize(in_dim, shared_dim)
+        self.router = Router(shared_dim, num_experts, topk=topk)
+        self.experts = LatentExperts(num_experts, shared_dim)
+        self.reasoner = Reasoner(shared_dim, num_classes=num_classes)
 
-Windows CMD:
+    def forward(self, x):
+        tokens = self.project(x)
+        _, idx = self.router(tokens)
+        fused = self.experts(tokens, idx)
+        return self.reasoner(fused)
 
-```bash
-.venv/Scripts/activate.bat
-```
 
-Linux/macOS:
-
-```bash
-source .venv/bin/activate
-```
-
-### 3. Add/install packages
-
-```bash
-python -m pip install --upgrade pip setuptools wheel
-pip install -r requirements.txt
-```
-
-If you have issues with package installation, introduce these:
-```powershell
-python -m pip install tensorflow==2.20.0
-python -m pip install protobuf>=5.28.0
-python -m pip install tensorflow-datasets
-python -m pip install PyYAML
-```
-
-This installs all packages needed by the scripts.
-
-### 4. Execute the required commands
-
-Run the CRC MoE zero-cost pruning experiment:
-
-```bash
-python scripts/run_crc_moe.py --epochs 3
-```
-
-Run aaSAG:
-
-```bash
-python scripts/run_aasag.py --epochs 1
-```
-
-Run Zero-NAS:
-
-```bash
-python scripts/run_zero_nas.py --n-architectures 20
-```
-
-Run semantic framework demo:
-
-```bash
-python scripts/run_semantic_demo.py
-```
-
-Run R-ULIx barebone demo:
-
-```bash
-python scripts/run_rulix_demo.py
-```
-
-Run a light combined demo:
-
-```bash
-python scripts/run_all.py
-```
-
-### 5. Deactivate the environment
-
-```bash
-deactivate
-```
-
-This returns the terminal to the global Python environment.
-
----
-
-## Option B: Conda environment
-
-The mechanism is similar: create a separate environment, activate it, install packages, run commands, then deactivate it.
-
-### 1. Create the environment
-
-```bash
-conda create -n medai-suite python=3.10 -y
-```
-
-or use:
-
-```bash
-conda env create -f environment.yml
-```
-
-### 2. Activate the environment
-
-```bash
-conda activate medai-suite
-```
-
-### 3. Install packages
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Execute commands
-
-Example:
-
-```bash
-python scripts/run_crc_moe.py --epochs 3
-```
-
-### 5. Deactivate
-
-```bash
-conda deactivate
-```
-
----
-
-## Components
-
-### 1. CRC MoE with zero-cost pruning
-
-Script:
-
-```bash
-python scripts/run_crc_moe.py --epochs 3
-```
-
-What it does:
-
-- loads `colorectal_histology` from TensorFlow Datasets
-- builds a pool of candidate experts
-- scores experts using a zero-cost gradient-norm proxy
-- keeps the top experts
-- trains a sparse MoE classifier
-
-Output:
-
-```text
-outputs/models/crc_moe.keras
-outputs/results/crc_moe_results.json
-```
-
----
-
-### 2. aaSAG: Saliency-Aligned Aggregation
-
-Script:
-
-```bash
-python scripts/run_aasag.py --epochs 1
-```
-
-What it does:
-
-- trains small MLP/CNN/ConvMixer-lite models on MNIST
-- computes gradient saliency maps
-- aligns model predictions using saliency agreement
-- produces saliency-based aggregation weights
-
-Output:
-
-```text
-outputs/results/aasag_results.json
-```
-
----
-
-### 3. Zero-cost NAS
-
-Script:
-
-```bash
-python scripts/run_zero_nas.py --n-architectures 20
-```
-
-What it does:
-
-- samples candidate CNN architectures
-- computes activation diversity without full training
-- ranks candidates using a zero-cost score
-- saves the best architecture
-
-Output:
-
-```text
-outputs/models/zero_nas_best.keras
-outputs/results/zero_nas_results.json
-```
-
----
-
-### 4. Semantic monitorable framework
-
-Script:
-
-```bash
-python scripts/run_semantic_demo.py
-```
-
-What it does:
-
-- creates architecture-decision records
-- ranks architecture candidates
-- saves a monitorable semantic JSON file
-
-Output:
-
-```text
-outputs/results/semantic_demo.json
-```
-
----
-
-### 5. R-ULIx barebone
-
-Script:
-
-```bash
-python scripts/run_rulix_demo.py
-```
-
-What it does:
-
-- builds a lightweight latent routing model
-- tests forward inference on dummy tokens
-- verifies model shape and execution
-
----
-
-## Minimal reproducibility workflow
-
-Windows PowerShell:
-
-```bash
-python -m venv .venv
-.venv/Scripts/Activate.ps1
-python -m pip install --upgrade pip setuptools wheel
-pip install -r requirements.txt
-python scripts/run_zero_nas.py --n-architectures 20
-python scripts/run_semantic_demo.py
-python scripts/run_rulix_demo.py
-deactivate
-```
-
-Linux/macOS:
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip setuptools wheel
-pip install -r requirements.txt
-python scripts/run_zero_nas.py --n-architectures 20
-python scripts/run_semantic_demo.py
-python scripts/run_rulix_demo.py
-deactivate
-```
-
----
-
-## Notes
-
-The TensorFlow scripts may download datasets automatically through TensorFlow Datasets. Internet access is required the first time.
-
-For GPU acceleration, install the TensorFlow/PyTorch versions that match your CUDA installation.
+def build_rulix_demo():
+    return R_ULIx(in_dim=128, shared_dim=256, num_experts=4, topk=2, num_classes=2)
