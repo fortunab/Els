@@ -88,6 +88,7 @@ If you have issues with package installation, introduce these:
 python -m pip install tensorflow==2.20.0
 python -m pip install protobuf>=5.28.0
 python -m pip install tensorflow-datasets
+python -m pip install PyYAML
 ```
 
 This installs all packages needed by the scripts.
