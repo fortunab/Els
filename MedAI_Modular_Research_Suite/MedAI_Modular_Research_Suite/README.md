@@ -1,7 +1,5 @@
 # MedAI Modular Research Suite
 
-## Repository structure
-
 ```text
 MedAI_Modular_Research_Suite/
 ├── README.md
