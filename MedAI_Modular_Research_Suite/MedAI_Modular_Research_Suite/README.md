@@ -83,6 +83,13 @@ python -m pip install --upgrade pip setuptools wheel
 pip install -r requirements.txt
 ```
 
+If you have issues with package installation, introduce these:
+```powershell
+python -m pip install tensorflow==2.20.0
+python -m pip install protobuf>=5.28.0
+python -m pip install tensorflow-datasets
+```
+
 This installs all packages needed by the scripts.
 
 ### 4. Execute the required commands
