@@ -1,19 +1,5 @@
 # MedAI Modular Research Suite
 
-This repository converts several experimental notebooks into a structured Python project for GitHub.
-
-The project contains runnable components for:
-
-- CRC Mixture-of-Experts with zero-cost expert pruning
-- aaSAG: Saliency-Aligned Aggregation
-- Zero-cost NAS / activation-diversity search
-- Semantic monitorable histopathology framework
-- R-ULIx barebone latent routing model
-
-The original notebooks are preserved in the `notebooks/` folder.
-
----
-
 ## Repository structure
 
 ```text
