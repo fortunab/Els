@@ -42,7 +42,7 @@ Python 3.10
 
 Why Python 3.10?
 
-TensorFlow and TensorFlow Datasets are sensitive to Python and protobuf versions. Python 3.10 provides a stable environment for the TensorFlow stack used in these experiments.
+TensorFlow and TensorFlow Datasets are sensitive to Python and protobuf versions. Python 3.10 provides a stable environment for the TensorFlow stack used in these experiments. Pleas, adjust the number of epochs and the batch size in order to achieve better results.
 
 ---
 
