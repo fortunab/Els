@@ -48,7 +48,7 @@ data/
 
 ```bash
 git clone https://github.com/fortunab/els
-cd els/alzheimer-mri-efficientnet-eigencam
+cd els/alzheimer-mri-efficientnet-gradcam/alzheimer-mri-efficientnet-gradcam
 ```
 
 ## Windows PowerShell Setup
@@ -63,8 +63,9 @@ python -m venv .venv
 Install dependencies:
 
 ```powershell
+
 pip install --upgrade pip
-pip install -r requirements.txt
+pip install -r requirements.txt 
 pip install -e .
 ```
 
