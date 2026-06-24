@@ -183,6 +183,17 @@ outputs/figures/confusion_matrix.png
 outputs/figures/roc_curve.png
 ```
 
+
+## Eigen-CAM config:
+```powershell
+@"
+
+eigencam:
+  images_per_class: 3
+  output_dir: outputs/eigencam
+"@ | Add-Content .\configs\config.yaml
+```
+
 ## Generate Eigen-CAM Heatmaps
 
 ```powershell
