@@ -2,7 +2,7 @@
 
 This repository contains a GitHub-ready implementation for Alzheimer MRI image classification using **EfficientNetB0** and visual explanation using an **Grad-CAM-style full attention heatmap**.
 
-The project is based on the notebook:
+The project is based on the notebook: 
 
 ```text
 notebooks/Copy_of_GradCAM_others.ipynb
