@@ -191,6 +191,9 @@ outputs/figures/roc_curve.png
 eigencam:
   images_per_class: 3
   output_dir: outputs/eigencam
+  seed: 42
+  overlay_alpha_image: 0.55
+  overlay_alpha_heatmap: 0.45
 "@ | Add-Content .\configs\config.yaml
 ```
 
