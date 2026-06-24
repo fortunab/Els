@@ -115,6 +115,16 @@ test_dir: D:/Datasets/AlzheimerMRI/test
 model_path: outputs/models/alzheimers_efficientnet_model.keras
 ```
 
+```powershell
+@"
+data_dir: data
+train_dir: data/train
+test_dir: data/test
+model_path: outputs/models/alzheimers_efficientnet_model.keras
+"@ | Set-Content .\configs\config.yaml
+```
+
+
 ## Train Model
 
 ```powershell
