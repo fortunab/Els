@@ -134,7 +134,7 @@ def save_eigencam_grid(
 
         plt.subplot(rows, 3, idx * 3 + 3)
         plt.imshow(overlay)
-        plt.title(f"Overlay\nPredicted: {pred_class}")
+        plt.title(f"Overlay\nPredicted: {true_class}")
         plt.axis("off")
 
     plt.tight_layout()
