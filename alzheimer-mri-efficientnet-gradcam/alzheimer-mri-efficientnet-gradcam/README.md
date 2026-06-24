@@ -115,6 +115,9 @@ test_dir: D:/Datasets/AlzheimerMRI/test
 model_path: outputs/models/alzheimers_efficientnet_model.keras
 ```
 
+
+## PowerShell: 
+
 ```powershell
 @"
 data_dir: data
