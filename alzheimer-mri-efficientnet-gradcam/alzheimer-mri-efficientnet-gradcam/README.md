@@ -120,7 +120,29 @@ model_path: outputs/models/alzheimers_efficientnet_model.keras
 data_dir: data
 train_dir: data/train
 test_dir: data/test
+
+image_size: [224, 224]
+batch_size: 32
+epochs: 50
+num_classes: 4
+learning_rate: 0.001
+fine_tune_from_layer: block5a_expand_activation
+
 model_path: outputs/models/alzheimers_efficientnet_model.keras
+reports_dir: outputs/reports
+figures_dir: outputs/figures
+
+early_stopping:
+  monitor: val_loss
+  min_delta: 0.01
+  patience: 11
+  restore_best_weights: true
+
+reduce_lr:
+  monitor: val_loss
+  factor: 0.2
+  patience: 5
+  min_lr: 0.000001
 "@ | Set-Content .\configs\config.yaml
 ```
 
