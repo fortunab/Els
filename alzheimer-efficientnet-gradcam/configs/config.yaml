@@ -1,0 +1,15 @@
+seed: 42
+img_size: [224, 224]
+batch_size: 32
+num_classes: 4
+epochs: 59
+learning_rate: 0.001
+fine_tune_from: block5a_expand_activation
+
+# Keep paths relative to the repository root when possible.
+data_dir: data
+train_dir: data/train
+test_dir: data/test
+model_path: outputs/models/alzheimers_efficientnet_model.keras
+reports_dir: outputs/reports
+gradcam_dir: outputs/gradcam
