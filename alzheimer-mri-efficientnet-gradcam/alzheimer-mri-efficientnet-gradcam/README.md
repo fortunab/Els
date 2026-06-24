@@ -214,18 +214,7 @@ git clone https://github.com/<your-username>/alzheimer-mri-efficientnet-eigencam
 
 ## Citation
 
-If you use this repository in academic work, cite the dataset source and your own paper/repository.
-
-Example BibTeX placeholder:
-
-```bibtex
-@software{alzheimer_mri_efficientnet_eigencam,
-  title = {Alzheimer MRI EfficientNetB0 Classification with Eigen-CAM},
-  author = {Your Name},
-  year = {2026},
-  url = {https://github.com/<your-username>/alzheimer-mri-efficientnet-eigencam}
-}
-```
+Follow-up.
 
 ## Notes
 
