@@ -1,6 +1,6 @@
-# Alzheimer MRI EfficientNetB0 Classification with Eigen-CAM
+# Alzheimer MRI EfficientNetB0 Classification with Grad-CAM
 
-This repository contains a GitHub-ready implementation for Alzheimer MRI image classification using **EfficientNetB0** and visual explanation using an **Eigen-CAM-style full attention heatmap**.
+This repository contains a GitHub-ready implementation for Alzheimer MRI image classification using **EfficientNetB0** and visual explanation using an **Grad-CAM-style full attention heatmap**.
 
 The project is based on the notebook:
 
@@ -16,7 +16,7 @@ notebooks/Copy_of_GradCAM_others.ipynb
 - Classification report
 - Confusion matrix
 - Multi-class ROC-AUC curve
-- Eigen-CAM-style attention heatmap visualization
+- Grad-CAM-style attention heatmap visualization
 - Portable dataset paths through `configs/config.yaml`
 - Works on Windows, Linux, Google Colab, and Kaggle with path adjustment
 
@@ -47,8 +47,8 @@ data/
 ## Clone Repository
 
 ```bash
-git clone https://github.com/<your-username>/alzheimer-mri-efficientnet-eigencam.git
-cd alzheimer-mri-efficientnet-eigencam
+git clone https://github.com/fortunab/els
+cd els/alzheimer-mri-efficientnet-eigencam
 ```
 
 ## Windows PowerShell Setup
