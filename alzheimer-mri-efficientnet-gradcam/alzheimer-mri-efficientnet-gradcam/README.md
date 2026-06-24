@@ -206,29 +206,10 @@ Output:
 outputs/figures/eigencam_grid.png
 ```
 
-## Push to GitHub
-
-After creating an empty GitHub repository:
-
-```powershell
-git init
-git add .
-git commit -m "Initial commit"
-
-git branch -M main
-git remote add origin https://github.com/<your-username>/alzheimer-mri-efficientnet-eigencam.git
-git push -u origin main
-```
-
-Then others can clone it with:
-
-```bash
-git clone https://github.com/<your-username>/alzheimer-mri-efficientnet-eigencam.git
-```
 
 ## Citation
 
-Follow-up.
+Follows-up.
 
 ## Notes
 
