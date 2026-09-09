@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy-Preserving & Explainable Multi-Disease AI Framework</title>
+    <meta name="description" content="Complete implementation, training studio, and SOTA comparative benchmarks for Privacy-Preserving & Explainable Multi-Disease AI Framework.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+    <!-- Top Header -->
+    <header class="app-header">
+        <div class="header-left">
+            <div class="logo-badge">
+                <span class="logo-icon">🛡️</span>
+                <div class="logo-text">
+                    <h1>Multi-Disease Clinical AI Studio</h1>
+                    <span class="logo-sub">Privacy-Preserving &amp; Explainable Federated DSS Framework</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-center">
+            <nav class="nav-tabs">
+                <button class="nav-btn active" id="tab-overview" onclick="switchTab('overview')">📊 Architecture</button>
+                <button class="nav-btn" id="tab-training" onclick="switchTab('training')">🏋️ Training Studio</button>
+                <button class="nav-btn" id="tab-sota" onclick="switchTab('sota')">🏆 SOTA Benchmarks &amp; Training</button>
+                <button class="nav-btn" id="tab-federated" onclick="switchTab('federated')">🌐 Federated (Alg. 1)</button>
+                <button class="nav-btn" id="tab-xai" onclick="switchTab('xai')">🔍 XAI &amp; Calibration</button>
+                <button class="nav-btn" id="tab-ablation" onclick="switchTab('ablation')">🧪 Ablation &amp; Math</button>
+            </nav>
+        </div>
+        <div class="header-right">
+            <div class="system-status-indicator">
+                <span class="status-dot green-pulse"></span>
+                <span class="status-label">Global Model Active</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="app-container">
+        <!-- TAB 1: ARCHITECTURE & LITERATURE -->
+        <section id="view-overview" class="tab-content active">
+            <div class="view-header">
+                <h2>Framework Overview &amp; Literature Mapping (WoS 2016–2025)</h2>
+                <p>Modular federated architecture integrating disease-specific CNN/ViT, adaptive preprocessing, NAS optimization, and XAI.</p>
+            </div>
+
+            <!-- Key Metric Cards -->
+            <div class="metrics-row">
+                <div class="metric-card glass-card border-glow-blue">
+                    <div class="metric-icon">🏥</div>
+                    <div class="metric-val">5</div>
+                    <div class="metric-lbl">Clinical Disease Domains</div>
+                    <div class="metric-sub">Polyp, Cytology, Alzheimer, Retinopathy, Skin</div>
+                </div>
+                <div class="metric-card glass-card border-glow-purple">
+                    <div class="metric-icon">📈</div>
+                    <div class="metric-val">0.9342</div>
+                    <div class="metric-lbl">Global Classification Accuracy</div>
+                    <div class="metric-sub">+4.15% vs ResNet-50 Baseline</div>
+                </div>
+                <div class="metric-card glass-card border-glow-cyan">
+                    <div class="metric-icon">🎯</div>
+                    <div class="metric-val">0.9516</div>
+                    <div class="metric-lbl">Area Under Curve (AUC)</div>
+                    <div class="metric-sub">Highest overall diagnostic power</div>
+                </div>
+                <div class="metric-card glass-card border-glow-green">
+                    <div class="metric-icon">📏</div>
+                    <div class="metric-val">0.0217</div>
+                    <div class="metric-lbl">Expected Calibration Error</div>
+                    <div class="metric-sub">Minimal predictive overconfidence</div>
+                </div>
+            </div>
+
+            <div class="two-col-grid">
+                <!-- Figure 1 Interactive Heatmap -->
+                <div class="glass-card">
+                    <div class="card-header">
+                        <h3>Figure 1: Machine Learning Methods vs Health Conditions</h3>
+                        <span class="badge badge-info">860 WoS Records</span>
+                    </div>
+                    <p class="card-desc">Bibliographic search distribution showing dominant ML architectures across clinical categories.</p>
+                    <div class="chart-container" style="position: relative; height: 340px;">
+                        <canvas id="fig1HeatmapCanvas"></canvas>
+                    </div>
+                </div>
+
+                <!-- System Architecture Overview (Fig 2, 3, 4) -->
+                <div class="glass-card">
+                    <div class="card-header">
+                        <h3>Figures 2–4: System Architecture &amp; Workflows</h3>
+                        <span class="badge badge-success">3 Tier Pipeline</span>
+                    </div>
+                    <div class="architecture-diagram-container">
+                        <div class="arch-box node-hospital">
+                            <strong>Distributed Clinical Nodes</strong>
+                            <div class="sub-nodes">
+                                <span class="tag">Hospital A (Retina)</span>
+                                <span class="tag">Hospital B (Histo)</span>
+                                <span class="tag">Hospital C (MRI)</span>
+                            </div>
+                        </div>
+                        <div class="arch-arrow">&rarr;</div>
+                        <div class="arch-box node-preprocess">
+                            <strong>Preprocessing &amp; Enhancement</strong>
+                            <div class="sub-nodes">
+                                <span>Min-Max Norm</span> &bull; <span>ZS-N2N</span> &bull; <span>CycleGAN</span>
+                            </div>
+                        </div>
+                        <div class="arch-arrow">&rarr;</div>
+                        <div class="arch-box node-server">
+                            <strong>Federated Server &amp; NAS</strong>
+                            <div class="sub-nodes">
+                                <span>FedProx Aggregation</span> &bull; <span>Multi-Obj NAS</span>
+                            </div>
+                        </div>
+                        <div class="arch-arrow">&rarr;</div>
+                        <div class="arch-box node-xai">
+                            <strong>Explainability &amp; Clinical DSS</strong>
+                            <div class="sub-nodes">
+                                <span>Grad-CAM++</span> &bull; <span>Score-CAM</span> &bull; <span>ECE Check</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-container margin-top-md">
+                        <h4>Table 1: Classification Performance Across Disease Domains</h4>
+                        <table class="data-table" id="table1-dom">
+                            <thead>
+                                <tr>
+                                    <th>Disease Domain</th>
+                                    <th>Accuracy</th>
+                                    <th>Precision</th>
+                                    <th>Sensitivity</th>
+                                    <th>F1-Score</th>
+                                    <th>AUC</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- JS Injected -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: MODEL TRAINING STUDIO (NEW!) -->
+        <section id="view-training" class="tab-content">
+            <div class="view-header">
+                <h2>🏋️ Interactive Model Training Studio</h2>
+                <p>Configure hyper-parameters, select target architecture (Architecture MH or SOTA baselines), and execute real-time model training.</p>
+            </div>
+
+            <div class="two-col-grid">
+                <!-- Training Config Controls -->
+                <div class="glass-card">
+                    <div class="card-header">
+                        <h3>1. Model &amp; Training Configuration</h3>
+                        <span class="badge badge-purple">Real-Time Engine</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Target Architecture to Train:</label>
+                        <select id="train-model-select" class="custom-select">
+                            <option value="Architecture MH" selected>⭐ Architecture MH (Proposed Hybrid Federated NAS)</option>
+                            <option value="ResNet-50">ResNet-50 (SOTA Baseline)</option>
+                            <option value="EfficientNet-B4">EfficientNet-B4 (SOTA Baseline)</option>
+                            <option value="Vision transformer">Vision Transformer (ViT)</option>
+                            <option value="FedAvg-CNN">FedAvg-CNN (Standard FL)</option>
+                            <option value="Hybrid CNN-ViT">Hybrid CNN-ViT</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Medical Imaging Domain:</label>
+                        <select id="train-domain-select" class="custom-select">
+                            <option value="Colorectal polyps">Colorectal Polyps (Endoscopy/Histo)</option>
+                            <option value="Cervical cytology">Cervical Cytology (Pap Smear)</option>
+                            <option value="Alzheimer’s disease">Alzheimer's Disease (Brain MRI)</option>
+                            <option value="Diabetic retinopathy">Diabetic Retinopathy (Retinal Fundus)</option>
+                            <option value="Skin lesions">Skin Lesions (Dermoscopy)</option>
+                        </select>
+                    </div>
+
+                    <div class="two-col-grid gap-sm">
+                        <div class="form-group">
+                            <label>Learning Rate:</label>
+                            <select id="train-lr-select" class="custom-select">
+                                <option value="0.001" selected>1e-3 (Adam Standard)</option>
+                                <option value="0.0005">5e-4</option>
+                                <option value="0.0001">1e-4</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Batch Size:</label>
+                            <select id="train-batch-select" class="custom-select">
+                                <option value="16">16</option>
+                                <option value="32" selected>32</option>
+                                <option value="64">64</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="two-col-grid gap-sm">
+                        <div class="form-group">
+                            <label>Communication Rounds: <span id="train-rounds-lbl">10</span></label>
+                            <input type="range" id="train-rounds-slider" min="3" max="25" value="10" oninput="document.getElementById('train-rounds-lbl').innerText=this.value">
+                        </div>
+                        <div class="form-group">
+                            <label>Local Epochs per Round: <span id="train-epochs-lbl">5</span></label>
+                            <input type="range" id="train-epochs-slider" min="1" max="10" value="5" oninput="document.getElementById('train-epochs-lbl').innerText=this.value">
+                        </div>
+                    </div>
+
+                    <button class="btn-primary full-width glowing-btn margin-top-md" id="btn-start-training" onclick="startInteractiveTraining()">
+                        <span>🚀 Launch Model Training</span>
+                    </button>
+                </div>
+
+                <!-- Training Live Monitor & Curves -->
+                <div class="glass-card">
+                    <div class="card-header">
+                        <h3>2. Live Training Monitor &amp; Performance Curves</h3>
+                        <span class="badge badge-success" id="training-status-badge">Idle</span>
+                    </div>
+
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" id="training-progress-fill" style="width: 0%;"></div>
+                    </div>
+
+                    <div class="chart-container margin-top-md" style="position: relative; height: 250px;">
+                        <canvas id="trainLiveChartCanvas"></canvas>
+                    </div>
+
+                    <!-- Console Logs -->
+                    <div class="training-console" id="training-console-log">
+                        <div class="log-entry info">> Studio ready. Select model and click Launch to start training session.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: SOTA BENCHMARKS & COMPARISON (ENHANCED!) -->
+        <section id="view-sota" class="tab-content">
+            <div class="view-header">
+                <h2>🏆 State-of-the-Art Baseline Comparison &amp; Benchmarks</h2>
+                <p>Side-by-side performance evaluation of Architecture MH against leading medical AI baselines.</p>
+            </div>
+
+            <div class="two-col-grid">
+                <!-- SOTA Radar / Comparison Bar -->
+                <div class="glass-card">
+                    <div class="card-header">
+                        <h3>Multi-Metric SOTA Radar Comparison</h3>
+                        <span class="badge badge-info">10 Metric Dimension</span>
+                    </div>
+                    <p class="card-desc">Comprehensive metric profile: Accuracy, F1, AUC, ECE, PR-AUC, FROC, MCC, Params, FLOPs, Latency.</p>
+                    
+                    <div class="chart-container" style="position: relative; height: 320px;">
+                        <canvas id="sotaRadarCanvas"></canvas>
+                    </div>
+                </div>
+
+                <!-- SOTA Benchmark Data Tables -->
+                <div class="glass-card">
+                    <div class="card-header">
+                        <h3>SOTA Baseline Evaluation Matrix</h3>
+                    </div>
+                    <div class="tab-sub-selector">
+                        <button class="sub-tab-btn active" onclick="switchSotaSubTab('table7')">Table 7 &amp; 9: Method Comparison</button>
+                        <button class="sub-tab-btn" onclick="switchSotaSubTab('table6')">Table 6: NAS Efficiency</button>
+                        <button class="sub-tab-btn" onclick="switchSotaSubTab('table10')">Table 10: Multi-Disease Frameworks</button>
+                    </div>
+
+                    <div id="subtab-table7" class="subtab-content active">
+                        <table class="data-table" id="table7-dom">
+                            <thead>
+                                <tr>
+                                    <th>Method</th>
+                                    <th>Acc</th>
+                                    <th>F1</th>
+                                    <th>AUC</th>
+                                    <th>ECE</th>
+                                    <th>PR-AUC</th>
+                                    <th>FROC</th>
+                                    <th>MCC</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- JS Injected -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="subtab-table6" class="subtab-content">
+                        <table class="data-table" id="table6-dom-copy">
+                            <thead>
+                                <tr>
+                                    <th>Architecture</th>
+                                    <th>Accuracy</th>
+                                    <th>Params (M)</th>
+                                    <th>FLOPs (G)</th>
+                                    <th>Latency (ms)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- JS Injected -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="subtab-table10" class="subtab-content">
+                        <table class="data-table" id="table10-dom">
+                            <thead>
+                                <tr>
+                                    <th>Framework</th>
+                                    <th>Architecture</th>
+                                    <th>Fed</th>
+                                    <th>Expl</th>
+                                    <th>Acc</th>
+                                    <th>AUC</th>
+                                    <th>ECE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- JS Injected -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: FEDERATED LEARNING & ALGORITHM 1 -->
+        <section id="view-federated" class="tab-content">
+            <div class="view-header">
+                <h2>Federated Learning Optimization &amp; Algorithm 1 Execution</h2>
+                <p>Collaborative multi-hospital training under privacy constraints and non-IID data distribution.</p>
+            </div>
+
+            <div class="two-col-grid">
+                <!-- Interactive Alg 1 Simulator Control -->
+                <div class="glass-card">
+                    <div class="card-header">
+                        <h3>Algorithm 1: Live FL Round Orchestrator</h3>
+                        <span class="badge badge-warning">Simulated Sandbox</span>
+                    </div>
+
+                    <div class="fl-controls">
+                        <div class="form-group">
+                            <label>FL Optimization Strategy:</label>
+                            <select id="fl-strategy-select" class="custom-select">
+                                <option value="FedProx" selected>FedProx (Proximal Term mu=0.01)</option>
+                                <option value="FedAvg">FedAvg (Standard Averaging)</option>
+                                <option value="Centralized">Centralized Baseline</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Communication Rounds: <span id="round-val-lbl">50</span></label>
+                            <input type="range" id="fl-round-slider" min="1" max="50" value="50" oninput="updateFLRoundSlider(this.value)">
+                        </div>
+
+                        <button class="btn-primary full-width glowing-btn" onclick="runFLSimulation()">
+                            <span>▶️ Run Federated Simulation</span>
+                        </button>
+                    </div>
+
+                    <div class="table-container margin-top-md">
+                        <h4>Table 2: Federated Optimization Strategy Benchmark</h4>
+                        <table class="data-table" id="table2-dom">
+                            <thead>
+                                <tr>
+                                    <th>Method</th>
+                                    <th>Accuracy</th>
+                                    <th>F1-Score</th>
+                                    <th>AUC</th>
+                                    <th>Rounds</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- JS Injected -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Figure 5 Plot & Table 3 -->
+                <div class="glass-card">
+                    <div class="card-header">
+                        <h3>Figure 5: Convergence Behavior across Communication Rounds</h3>
+                    </div>
+                    <div class="chart-container" style="position: relative; height: 280px;">
+                        <canvas id="fig5ConvergenceCanvas"></canvas>
+                    </div>
+
+                    <div class="table-container margin-top-md">
+                        <h4>Table 3: Cross-Institution Generalization (External Validation Settings)</h4>
+                        <table class="data-table" id="table3-dom">
+                            <thead>
+                                <tr>
+                                    <th>Institution</th>
+                                    <th>Accuracy</th>
+                                    <th>F1-Score</th>
+                                    <th>AUC</th>
+                                    <th>ECE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- JS Injected -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: XAI & CALIBRATION STUDIO -->
+        <section id="view-xai" class="tab-content">
+            <div class="view-header">
+                <h2>Explainable AI &amp; Uncertainty Calibration Studio</h2>
+                <p>Visual explanations (Grad-CAM, Grad-CAM++, Score-CAM) and predictive uncertainty calibration metrics.</p>
+            </div>
+
+            <div class="two-col-grid">
+                <!-- Figure 6 MRI Heatmap Matrix Studio -->
+                <div class="glass-card">
+                    <div class="card-header">
+                        <h3>Figure 6: Alzheimer MRI Stage Visual Explanations</h3>
+                        <span class="badge badge-purple">Interactive Matrix</span>
+                    </div>
+                    <p class="card-desc">Compare original T1-weighted MRI with Grad-CAM, Grad-CAM++, and Score-CAM heatmaps across disease severity stages.</p>
+
+                    <div class="mri-matrix-container" id="mri-matrix-grid">
+                        <!-- Canvas Matrix Injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Table 4 & Table 5 Explainability/Calibration Metrics -->
+                <div class="glass-card">
+                    <div class="card-header">
+                        <h3>Table 4 &amp; Table 5: XAI &amp; Uncertainty Performance</h3>
+                    </div>
+
+                    <h4>Table 4: Localization &amp; Clinician Agreement</h4>
+                    <table class="data-table" id="table4-dom">
+                        <thead>
+                            <tr>
+                                <th>Disease Domain</th>
+                                <th>Localization Acc</th>
+                                <th>IoU</th>
+                                <th>Clinician Agreement</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- JS Injected -->
+                        </tbody>
+                    </table>
+
+                    <h4 class="margin-top-md">Table 5: Uncertainty &amp; Calibration Metrics</h4>
+                    <table class="data-table" id="table5-dom">
+                        <thead>
+                            <tr>
+                                <th>Disease Domain</th>
+                                <th>ECE</th>
+                                <th>Brier Score</th>
+                                <th>Predictive Entropy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- JS Injected -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 6: ABLATION & FORMULAS -->
+        <section id="view-ablation" class="tab-content">
+            <div class="view-header">
+                <h2>Ablation Study &amp; Mathematical Formalization</h2>
+                <p>Component contribution analysis and theoretical equations (Eq 1–12).</p>
+            </div>
+
+            <div class="two-col-grid">
+                <!-- Table 11 Ablation -->
+                <div class="glass-card">
+                    <div class="card-header">
+                        <h3>Table 11: Framework Component Ablation Study</h3>
+                    </div>
+                    <p class="card-desc">Quantifying the impact of federated learning, preprocessing, NAS, XAI, and calibration mechanisms.</p>
+                    <table class="data-table" id="table11-dom">
+                        <thead>
+                            <tr>
+                                <th>Configuration</th>
+                                <th>Accuracy</th>
+                                <th>F1-Score</th>
+                                <th>AUC</th>
+                                <th>ECE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- JS Injected -->
+                        </tbody>
+                    </table>
+
+                    <div class="chart-container margin-top-md" style="position: relative; height: 240px;">
+                        <canvas id="ablationBarCanvas"></canvas>
+                    </div>
+                </div>
+
+                <!-- Mathematical Formulas Card -->
+                <div class="glass-card">
+                    <div class="card-header">
+                        <h3>Core Mathematical Formalism (Eq 1–12)</h3>
+                        <button class="btn-secondary btn-sm" onclick="downloadJSONResults()">📥 Export JSON Results</button>
+                    </div>
+                    <div class="formulas-container">
+                        <div class="formula-box">
+                            <strong>Eq. 4: Min-Max Normalization</strong>
+                            <code>x_{norm} = (x - min(x)) / (max(x) - min(x))</code>
+                        </div>
+                        <div class="formula-box">
+                            <strong>Eq. 5: Zero-Shot Noise-to-Noise Denoising</strong>
+                            <code>L_{N2N}(\theta) = E_{x \sim X} [ || D_\theta(x) - x' ||_2^2 ]</code>
+                        </div>
+                        <div class="formula-box">
+                            <strong>Eq. 8: CycleGAN Consistency Loss</strong>
+                            <code>L_{cyc}(G, F) = E_{x \sim A}[ || F(G(x)) - x ||_1 ] + E_{y \sim B}[ || G(F(y)) - y ||_1 ]</code>
+                        </div>
+                        <div class="formula-box">
+                            <strong>Eq. 9: Transformer Self-Attention</strong>
+                            <code>Attention(Q, K, V) = softmax( (Q * K^T) / \sqrt{d_k} ) * V</code>
+                        </div>
+                        <div class="formula-box">
+                            <strong>Eq. 12: Grad-CAM Importance Weight</strong>
+                            <code>\alpha_k^c = \frac{1}{Z} \sum_i \sum_j \frac{\partial y^c}{\partial A_{ij}^k}</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
